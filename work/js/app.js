@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         `<td>${item.id}</td>
          <td>${item.name}</td>
          <td>${item.price}</td>
-         <td>${item.explanation}</td>`;
+         <td>${item.description}</td>`;
         //trをproductTableに追加
         productTable.appendChild(listItem);
       });
