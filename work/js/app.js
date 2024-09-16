@@ -4,17 +4,23 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(response => response.json())
     .then(items => {
       //productTableを取得
-      const product = document.getElementById('productTable');
-      //各アイテムを取得してテーブルに追加する
+      const productTable = document.getElementById('productTable');
       items.forEach(item => {
-        const rows = document.getElementBy('tr');
-        //商品情報を入れる
-        const listItem = document.createElement('th');
-        listItem.textContent = 'ID:${product.id},商品名:${product.name},価格:${product.price},説明:${product.explanation}';
+        //trの作成
+        const listItem = document.createElement('tr');
+        //tdを作成してデータを追加
+        listItem.innerHTML =
+        `<td>${item.id}</td>
+         <td>${item.name}</td>
+         <td>${item.price}</td>
+         <td>${item.explanation}</td>`;
+        //trをproductTableに追加
         productTable.appendChild(listItem);
+      });
     })
 
     //失敗した時の処理
-    .catch(error =>
-      console.log('エラー:', error));
+    .catch(error => {
+      console.log('エラー:', error);
+    });
 });
